@@ -71,7 +71,7 @@ export default () => next => action => {
                   // convert 'something[14].other[4].id' to 'something[].other[].id' so translations can be written to it
                   const convertedField = fieldError.field.replace(/\[\d*\]/g, '[]');
                   const fieldName = convertedField.charAt(0).toUpperCase() + convertedField.slice(1);
-                  addErrorAlert(`Error on field "${fieldName}"`, `error.${fieldError.message}`, { fieldName });
+                  addErrorAlert(`Erro no campo "${fieldName}"`, `error.${fieldError.message}`, { fieldName });
                 }
               } else if (data !== '' && data.message) {
                 addErrorAlert(data.message, data.message, data.params);
