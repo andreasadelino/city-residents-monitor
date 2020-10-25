@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IRootState } from 'app/shared/reducers';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Col, Row, Table } from 'reactstrap';
-import { ICrudGetAllAction } from 'react-jhipster';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button, Table } from 'reactstrap';
 
-import { IRootState } from 'app/shared/reducers';
 import { getEntities } from './residence.reducer';
-import { IResidence } from 'app/shared/model/residence.model';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
 export interface IResidenceProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
@@ -45,7 +42,7 @@ export const Residence = (props: IResidenceProps) => {
               {residenceList.map((residence, i) => (
                 <tr key={`entity-${i}`}>
                   <td>
-                    <Button tag={Link} to={`${match.url}/${residence.id}`} color="link" size="sm">
+                    <Button tag={Link} to={`${match.url}/view/${residence.id}`} color="link" size="sm">
                       {residence.id}
                     </Button>
                   </td>
@@ -56,7 +53,7 @@ export const Residence = (props: IResidenceProps) => {
                   <td>{residence.residents}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`${match.url}/${residence.id}`} color="info" size="sm">
+                      <Button tag={Link} to={`${match.url}/view/${residence.id}`} color="info" size="sm">
                         <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">Visualizar</span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${residence.id}/edit`} color="primary" size="sm">

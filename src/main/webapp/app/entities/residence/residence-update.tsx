@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Row, Col, Label } from 'reactstrap';
-import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
-import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
+import { AvField, AvForm, AvGroup } from 'availity-reactstrap-validation';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { Link, RouteComponentProps } from 'react-router-dom';
+import { Button, Col, Label, Row } from 'reactstrap';
 
-import { getEntity, updateEntity, createEntity, reset } from './residence.reducer';
-import { IResidence } from 'app/shared/model/residence.model';
-import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
-import { mapIdList } from 'app/shared/util/entity-utils';
+import { createEntity, getEntity, reset, updateEntity } from './residence.reducer';
 
 export interface IResidenceUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -56,7 +52,7 @@ export const ResidenceUpdate = (props: IResidenceUpdateProps) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="cityResidencesTrackApp.residence.home.createOrEditLabel">Crir ou editar uma residência</h2>
+          <h2 id="cityResidencesTrackApp.residence.home.createOrEditLabel">Criar ou editar uma residência</h2>
         </Col>
       </Row>
       <Row className="justify-content-center">
@@ -74,7 +70,7 @@ export const ResidenceUpdate = (props: IResidenceUpdateProps) => {
                   type="text"
                   name="zipcode"
                   validate={{
-                    pattern: { value: '\\d{8}', errorMessage: "O CEP deve conter 8 dígitos." },
+                    pattern: { value: '^\\d{8}$', errorMessage: "O CEP deve conter 8 dígitos." },
                     required: { value: true, errorMessage: 'Campo obrigatório.' },
                   }}
                 />
@@ -88,7 +84,7 @@ export const ResidenceUpdate = (props: IResidenceUpdateProps) => {
                   type="text"
                   name="streetNumber"
                   validate={{
-                    pattern: { value: '\\d{1,4}', errorMessage: "Número de residência inválido." },
+                    pattern: { value: '^\\d{1,4}$', errorMessage: "Número de residência inválido." },
                     required: { value: true, errorMessage: 'Campo obrigatório.' },
                   }}
                 />
@@ -141,12 +137,12 @@ export const ResidenceUpdate = (props: IResidenceUpdateProps) => {
               <Button tag={Link} id="cancel-save" to="/residence" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
-                <span className="d-none d-md-inline">Back</span>
+                <span className="d-none d-md-inline">Voltar</span>
               </Button>
               &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
                 <FontAwesomeIcon icon="save" />
-                &nbsp; Save
+                &nbsp; Salvar
               </Button>
             </AvForm>
           )}

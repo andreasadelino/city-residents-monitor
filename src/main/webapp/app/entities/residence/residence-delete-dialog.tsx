@@ -1,13 +1,11 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IRootState } from 'app/shared/reducers';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
-import { ICrudGetAction, ICrudDeleteAction } from 'react-jhipster';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
-import { IResidence } from 'app/shared/model/residence.model';
-import { IRootState } from 'app/shared/reducers';
-import { getEntity, deleteEntity } from './residence.reducer';
+import { deleteEntity, getEntity } from './residence.reducer';
 
 export interface IResidenceDeleteDialogProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 

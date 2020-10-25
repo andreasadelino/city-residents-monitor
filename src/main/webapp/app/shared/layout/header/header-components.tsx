@@ -5,7 +5,7 @@ import { NavbarBrand, NavItem, NavLink } from 'reactstrap';
 
 export const Brand = props => (
   <NavbarBrand tag={Link} to="/" className="brand-logo">
-    <span className="brand-title">City Residences Track</span>
+    <span className="brand-title">Monitoramento de residências</span>
   </NavbarBrand>
 );
 

@@ -6,7 +6,7 @@ import Residence from './entities/residence/residence';
 import ResidenceDeleteDialog from './entities/residence/residence-delete-dialog';
 import ResidenceDetail from './entities/residence/residence-detail';
 import ResidenceUpdate from './entities/residence/residence-update';
-import ResidencesHeatMap from './entities/residence/ResidencesHeatMap';
+import ResidencesHeatMap from './entities/residence/residence-heatmap';
 
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
 
@@ -17,7 +17,7 @@ const Routes = () => (
       <Route exact path="/residence" component={Residence} />
       <Route exact path='/residence/new' component={ResidenceUpdate} />
       <Route exact path='/residence/:id/edit' component={ResidenceUpdate} />
-      <Route exact path='/residence/:id' component={ResidenceDetail} />
+      <Route exact path='/residence/view/:id' component={ResidenceDetail} />
       <Route exact path='/residence/:id/delete' component={ResidenceDeleteDialog} />
     </Router>
 );

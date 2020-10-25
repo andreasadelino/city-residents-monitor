@@ -45,15 +45,12 @@ const ResidencesHeatMap = () => {
   function initMap() {
     getInitialGeoLocation();
     const mapOptions: MapOptions = {
-      // maxBounds: [[center.lat, center.lng]],
       maxZoom: 16,
     };
     const leafletMap = L.map("map", mapOptions).setView([initialPosition.lat, initialPosition.lng], 12);
 
-    const popup = L.popup().setContent("teste");
-
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+    L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(leafletMap);
 
     leafletMap.on('click', (event: LeafletMouseEvent) => {
@@ -69,16 +66,6 @@ const ResidencesHeatMap = () => {
 
     setMap(leafletMap);
   }
-
-  // function removePopups() {
-  //   map.eachLayer((layer: Popup) => {
-  //     if (
-  //       layer instanceof L.Popup || layer instanceof L.Tooltip
-  //     ) {
-  //       layer.remove(); // layer.removeFrom(map); map.removeLayer(layer);
-  //     }
-  //   });
-  // }
 
   async function getResidenceCoordinates() {
     const response = await api.get<Array<ResidenceCoordinates>>("residences/coordinates");

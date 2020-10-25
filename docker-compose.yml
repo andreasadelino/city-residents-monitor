@@ -7,7 +7,7 @@ services:
       - 'SPRING_PROFILES_ACTIVE=prod,swagger'
       - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
       - 'SPRING_DATASOURCE_URL=jdbc:postgresql://cityresidencestrack-postgresql:5432/CityResidencesTrack'
-      - JHIPSTER_SLEEP=30
+      - JHIPSTER_SLEEP=10
     ports:
       - '8080:8080'
   cityresidencestrack-postgresql:
