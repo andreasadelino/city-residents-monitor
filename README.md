@@ -2,8 +2,8 @@
 
 ### Requirements to execute the app
 
-- Docker version 19.03.13
-- Docker-compose version 1.26.0
+- Docker version >= 19.03.13
+- Docker-compose version >= 1.26.0 or up
 - Java 14
 
 ### Commands to setup the app
