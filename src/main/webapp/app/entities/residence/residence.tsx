@@ -21,10 +21,10 @@ export const Residence = (props: IResidenceProps) => {
   return (
     <div>
       <h2 id="residence-heading">
-        Residences
+        Residências
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
-          &nbsp; Create new Residence
+          &nbsp; Adicionar residência
         </Link>
       </h2>
       <div className="table-responsive">
@@ -33,11 +33,11 @@ export const Residence = (props: IResidenceProps) => {
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Zipcode</th>
-                <th>Street Number</th>
+                <th>CEP</th>
+                <th>Número</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
-                <th>Residents</th>
+                <th>Quantidade de residentes</th>
                 <th />
               </tr>
             </thead>
@@ -57,13 +57,13 @@ export const Residence = (props: IResidenceProps) => {
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${residence.id}`} color="info" size="sm">
-                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
+                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">Visualizar</span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${residence.id}/edit`} color="primary" size="sm">
-                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Editar</span>
                       </Button>
                       <Button tag={Link} to={`${match.url}/${residence.id}/delete`} color="danger" size="sm">
-                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Excluir</span>
                       </Button>
                     </div>
                   </td>
@@ -72,7 +72,7 @@ export const Residence = (props: IResidenceProps) => {
             </tbody>
           </Table>
         ) : (
-          !loading && <div className="alert alert-warning">No Residences found</div>
+          !loading && <div className="alert alert-warning">Nenhuma residência encontrada</div>
         )}
       </div>
     </div>

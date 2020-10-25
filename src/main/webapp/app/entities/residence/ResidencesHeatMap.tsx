@@ -70,15 +70,15 @@ const ResidencesHeatMap = () => {
     setMap(leafletMap);
   }
 
-  function removePopups() {
-    map.eachLayer((layer: Popup) => {
-      if (
-        layer instanceof L.Popup || layer instanceof L.Tooltip
-      ) {
-        layer.remove(); // layer.removeFrom(map); map.removeLayer(layer);
-      }
-    });
-  }
+  // function removePopups() {
+  //   map.eachLayer((layer: Popup) => {
+  //     if (
+  //       layer instanceof L.Popup || layer instanceof L.Tooltip
+  //     ) {
+  //       layer.remove(); // layer.removeFrom(map); map.removeLayer(layer);
+  //     }
+  //   });
+  // }
 
   async function getResidenceCoordinates() {
     const response = await api.get<Array<ResidenceCoordinates>>("residences/coordinates");

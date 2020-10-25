@@ -22,15 +22,15 @@ export const ResidenceDetail = (props: IResidenceDetailProps) => {
     <Row>
       <Col md="8">
         <h2>
-          Residence [<b>{residenceEntity.id}</b>]
+          Residência [<b>{residenceEntity.id}</b>]
         </h2>
         <dl className="jh-entity-details">
           <dt>
-            <span id="zipcode">Zipcode</span>
+            <span id="zipcode">CEP</span>
           </dt>
           <dd>{residenceEntity.zipcode}</dd>
           <dt>
-            <span id="streetNumber">Street Number</span>
+            <span id="streetNumber">Número</span>
           </dt>
           <dd>{residenceEntity.streetNumber}</dd>
           <dt>
@@ -42,16 +42,16 @@ export const ResidenceDetail = (props: IResidenceDetailProps) => {
           </dt>
           <dd>{residenceEntity.longitude}</dd>
           <dt>
-            <span id="residents">Residents</span>
+            <span id="residents">Quantidade de residentes</span>
           </dt>
           <dd>{residenceEntity.residents}</dd>
         </dl>
         <Button tag={Link} to="/residence" replace color="info">
-          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
+          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Voltar</span>
         </Button>
         &nbsp;
         <Button tag={Link} to={`/residence/${residenceEntity.id}/edit`} replace color="primary">
-          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Editar</span>
         </Button>
       </Col>
     </Row>

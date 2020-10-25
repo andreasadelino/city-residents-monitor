@@ -23,6 +23,8 @@ a {
 
 .app-container {
   box-sizing: border-box;
+  padding: 50px;
+  margin-top: 50px;
   .view-container {
     width: 100%;
     height: calc(100% - 40px);

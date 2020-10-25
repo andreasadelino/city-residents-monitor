@@ -1,46 +1,25 @@
+import Header from 'app/shared/layout/header/header';
 import React from 'react';
-import { Switch } from 'react-router-dom';
-import Loadable from 'react-loadable';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Login from 'app/modules/login/login';
-import Register from 'app/modules/account/register/register';
-import Activate from 'app/modules/account/activate/activate';
-import PasswordResetInit from 'app/modules/account/password-reset/init/password-reset-init';
-import PasswordResetFinish from 'app/modules/account/password-reset/finish/password-reset-finish';
-import Logout from 'app/modules/login/logout';
-import Home from 'app/modules/home/home';
-import Entities from 'app/entities';
-import PrivateRoute from 'app/shared/auth/private-route';
-import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
-import PageNotFound from 'app/shared/error/page-not-found';
-import { AUTHORITIES } from 'app/config/constants';
+import Residence from './entities/residence/residence';
+import ResidenceDeleteDialog from './entities/residence/residence-delete-dialog';
+import ResidenceDetail from './entities/residence/residence-detail';
+import ResidenceUpdate from './entities/residence/residence-update';
+import ResidencesHeatMap from './entities/residence/ResidencesHeatMap';
 
-const Account = Loadable({
-  loader: () => import(/* webpackChunkName: "account" */ 'app/modules/account'),
-  loading: () => <div>loading ...</div>,
-});
-
-const Admin = Loadable({
-  loader: () => import(/* webpackChunkName: "administration" */ 'app/modules/administration'),
-  loading: () => <div>loading ...</div>,
-});
+const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
 
 const Routes = () => (
-  <div className="view-routes">
-    <Switch>
-      <ErrorBoundaryRoute path="/login" component={Login} />
-      <ErrorBoundaryRoute path="/logout" component={Logout} />
-      <ErrorBoundaryRoute path="/account/register" component={Register} />
-      <ErrorBoundaryRoute path="/account/activate/:key?" component={Activate} />
-      <ErrorBoundaryRoute path="/account/reset/request" component={PasswordResetInit} />
-      <ErrorBoundaryRoute path="/account/reset/finish/:key?" component={PasswordResetFinish} />
-      <PrivateRoute path="/admin" component={Admin} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
-      <PrivateRoute path="/account" component={Account} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.USER]} />
-      <ErrorBoundaryRoute path="/" exact component={Home} />
-      <PrivateRoute path="/" component={Entities} hasAnyAuthorities={[AUTHORITIES.USER]} />
-      <ErrorBoundaryRoute component={PageNotFound} />
-    </Switch>
-  </div>
+    <Router basename={baseHref}>
+      <Header />
+      <Route path="/" exact component={ResidencesHeatMap} />
+      <Route exact path="/residence" component={Residence} />
+      <Route exact path='/residence/new' component={ResidenceUpdate} />
+      <Route exact path='/residence/:id/edit' component={ResidenceUpdate} />
+      <Route exact path='/residence/:id' component={ResidenceDetail} />
+      <Route exact path='/residence/:id/delete' component={ResidenceDeleteDialog} />
+    </Router>
 );
 
 export default Routes;
