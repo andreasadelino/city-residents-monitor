@@ -12,3 +12,4 @@ Open the terminal in the root dir:
 
 1. ./mvnw clean package -Pprod verify jib:dockerBuild -Dmaven.test.skip=true
 2. docker-compose up --always-recreate-deps --build --force-recreate --remove-orphans
+3. The app should be running on http://localhost:8080
