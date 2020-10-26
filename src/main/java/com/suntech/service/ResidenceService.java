@@ -102,6 +102,6 @@ public class ResidenceService {
     public static class ResidentHeatValue {
         Double latitude;
         Double longitude;
-        Double cap;
+        Double value;
     }
 }

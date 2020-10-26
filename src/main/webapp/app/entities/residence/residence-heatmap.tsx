@@ -18,7 +18,7 @@ type ResidenceCoordinates = [number, number];
 interface ResidenceHeatValue {
   latitude: number;
   longitude: number;
-  cap: number;
+  value: number;
 }
 
 const ResidencesHeatMap = () => {
@@ -78,7 +78,7 @@ const ResidencesHeatMap = () => {
   }, []);
 
   useEffect(() => {
-    const latLgns: LatLng[] = coordinates.map(coordinate => new LatLng(coordinate.latitude, coordinate.longitude, coordinate.cap));
+    const latLgns: LatLng[] = coordinates.map(coordinate => new LatLng(coordinate.latitude, coordinate.longitude, coordinate.value));
 
     log.info("Coordenadas: ", latLgns);
 

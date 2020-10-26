@@ -116,6 +116,10 @@ public class ResidenceResource {
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
     }
 
+    /**
+     * {@code GET /residences/coordinates} : get all residence coordinates and the heatValue based on number of residents.
+     * @return the {@link com.suntech.service.ResidenceService.ResidentHeatValue} list.
+     */
     @GetMapping("/residences/coordinates")
     public ResponseEntity<List<ResidenceService.ResidentHeatValue>> getAllCoordinates() {
         return ResponseEntity.ok(residenceService.getAllCoordinates());

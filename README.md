@@ -1,4 +1,4 @@
-# CityResidentTrack
+# City Residents Monitor
 
 ### Requirements to execute the app
 
